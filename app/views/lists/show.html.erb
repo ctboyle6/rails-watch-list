@@ -1,7 +1,7 @@
 <h1><%= @list.name %></h1>
 
 <!-- movies included in @list to be displayed here -->
-<ul>
+<ul class="list-inline">
   <% @list.movies.each do |movie| %>
     <li>
       <div class="card mb-3" style="max-width: 600px;">
@@ -14,7 +14,10 @@
               <div class="card-header"><strong><%= movie.title %></strong></div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><%= movie.overview %></li>
-                <li class="list-group-item">Rating: <%= movie.rating %></li>
+                <li class="list-group-item d-flex justify-content-between">
+                  Rating: <%= movie.rating %>
+                  <%= link_to "Remove film", '#', class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
+                </li>
               </ul>
             </div>
           </div>
@@ -27,3 +30,5 @@
 <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-outline-success" %>
 
 <%= link_to "Back to all lists", lists_path, class: "btn btn-outline-secondary"  %>
+
+<%#= link_to "Remove film", bookmark_path(movie.bookmark_ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
