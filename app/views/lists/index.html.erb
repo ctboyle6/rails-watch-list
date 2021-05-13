@@ -1,13 +1,28 @@
-<h1>All Lists</h1>
+<!-- All Lists page -->
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/random');">
+  <div class="container">
+    <h1>All Lists</h1>
+    <p>What to watch next!</p>
+  </div>
+</div>
 
 <br>
 
-<%= link_to "Add new list", new_list_path, class: "btn btn-outline-primary" %>
+<div class="container">
+  <div class="d-grid gap-2">
+    <%= link_to "Add new list", new_list_path, class: "btn btn-outline-secondary btn-lg" %>
+  </div>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= link_to list.name, list_path(list) %>
-    </li>
-  <% end %>
-</ul>
+  <br>
+
+  <ul class="list-inline">
+    <% @lists.each do |list| %>
+      <li class="my-5">
+        <div class="card-category" style="max-width: 800px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to list.name, list_path(list), class: "text-white text-decoration-none" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
