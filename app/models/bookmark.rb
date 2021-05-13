@@ -3,7 +3,7 @@ class Bookmark < ApplicationRecord
   belongs_to :list
 
   validates :comment, length: { minimum: 6 }
-  validates_uniqueness_of :movie_id, scope: :list_id, message: 'can only have one list assigned'
+  validates :movie, uniqueness: { scope: :list, message: 'can only have one list assigned' }
 end
 
 # A bookmark must be linked to a movie and a list, and the [movie, list] pairings should be unique.
