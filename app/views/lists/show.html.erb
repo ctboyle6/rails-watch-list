@@ -4,7 +4,22 @@
 <ul>
   <% @list.movies.each do |movie| %>
     <li>
-      <%= movie.title %>
+      <div class="card mb-3" style="max-width: 600px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%= image_tag movie.poster_url, alt: "Bill Murray" %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-header"><strong><%= movie.title %></strong></div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= movie.overview %></li>
+                <li class="list-group-item">Rating: <%= movie.rating %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>
