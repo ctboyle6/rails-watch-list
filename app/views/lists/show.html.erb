@@ -16,7 +16,7 @@
                 <li class="list-group-item"><%= movie.overview %></li>
                 <li class="list-group-item d-flex justify-content-between">
                   Rating: <%= movie.rating %>
-                  <%= link_to "Remove film", '#', class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
+                  <%= link_to "Remove film", bookmark_path(movie.bookmarks.ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
                 </li>
               </ul>
             </div>
