@@ -6,6 +6,9 @@
   </div>
 </div>
 
+<br>
+
+
 <div class="container">
   <ul class="list-inline">
     <% @list.movies.each do |movie| %>
@@ -16,7 +19,7 @@
               <%= image_tag movie.poster_url, alt: "Bill Murray" %>
             </div>
             <div class="col-md-8">
-              <div class="card-body">
+              <div class="card-body bg-light">
                 <div class="card-header"><strong><%= movie.title %></strong></div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><%= movie.overview %></li>
