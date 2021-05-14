@@ -13,7 +13,7 @@ puts 'all clean!'
 
 puts 'adding some new movies...'
 
-20.times do
+10.times do
   movie = Movie.create(
     title: Faker::Movie.title,
     overview: Faker::Movie.quote,
