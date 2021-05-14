@@ -1,34 +1,35 @@
-<h1><%= @list.name %></h1>
 
 <!-- movies included in @list to be displayed here -->
-<ul class="list-inline">
-  <% @list.movies.each do |movie| %>
-    <li>
-      <div class="card mb-3" style="max-width: 600px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <%= image_tag movie.poster_url, alt: "Bill Murray" %>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-header"><strong><%= movie.title %></strong></div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= movie.overview %></li>
-                <li class="list-group-item d-flex justify-content-between">
-                  Rating: <%= movie.rating %>
-                  <%= link_to "Remove film", bookmark_path(movie.bookmarks.ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
-                </li>
-              </ul>
+<div class="container">
+  <h1 class="m-3 p-3"><%= @list.name %></h1>
+  <ul class="list-inline">
+    <% @list.movies.each do |movie| %>
+      <li>
+        <div class="card mb-3" style="max-width: 600px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <%= image_tag movie.poster_url, alt: "Bill Murray" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="card-header"><strong><%= movie.title %></strong></div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%= movie.overview %></li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    Rating: <%= movie.rating %>
+                    <%= link_to "Remove film", bookmark_path(movie.bookmarks.ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-outline-success" %>
-
-<%= link_to "Back to all lists", lists_path, class: "btn btn-outline-secondary"  %>
-
-<%#= link_to "Remove film", bookmark_path(movie.bookmark_ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="container footer-nav">
+    <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-outline-success" %>
+    <%= link_to "Back to all lists", lists_path, class: "btn btn-outline-secondary"  %>
+  </div>
+  <%#= link_to "Remove film", bookmark_path(movie.bookmark_ids), class: "btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure??' } %>
+</div>
